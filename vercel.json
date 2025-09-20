@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/next",
+      "config": { "rootDir": "frontend" }
+    },
+    {
+      "src": "backend/index.js",
+      "use": "@vercel/node",
+      "config": { "rootDir": "backend" }
+    }
+  ],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" },
+    { "source": "/(.*)", "destination": "/$1" }
+  ]
+}
