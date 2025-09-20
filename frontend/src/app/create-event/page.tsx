@@ -23,31 +23,47 @@ export default function CreateEventPage() {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Create New Event</h1>
-      <input
-        type="text"
-        placeholder="Event Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        className="mb-2 p-2 border rounded w-full"
-      />
-      <textarea
-        placeholder="Event Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        className="mb-2 p-2 border rounded w-full"
-      />
-      <input
-        type="number"
-        placeholder="Prize (ETH)"
-        value={prize}
-        onChange={(e) => setPrize(e.target.value)}
-        className="mb-4 p-2 border rounded w-full"
-      />
-      <button onClick={handleCreateEvent} className="bg-green-500 text-white p-2 rounded">
-        Create Event
-      </button>
+    <div className="bg-gray-900 text-white min-h-screen">
+      <div className="container mx-auto px-4 py-12">
+        <h1 className="text-4xl font-bold text-center mb-8">Create a New Event</h1>
+        <div className="max-w-lg mx-auto bg-gray-800 p-8 rounded-lg">
+          <div className="mb-4">
+            <label htmlFor="title" className="block text-lg font-bold mb-2">Event Title</label>
+            <input
+              type="text"
+              id="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="w-full bg-gray-700 text-white p-3 rounded-lg"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="description" className="block text-lg font-bold mb-2">Event Description</label>
+            <textarea
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="w-full bg-gray-700 text-white p-3 rounded-lg h-32"
+            />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="prize" className="block text-lg font-bold mb-2">Prize (ETH)</label>
+            <input
+              type="number"
+              id="prize"
+              value={prize}
+              onChange={(e) => setPrize(e.target.value)}
+              className="w-full bg-gray-700 text-white p-3 rounded-lg"
+            />
+          </div>
+          <button
+            onClick={handleCreateEvent}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg"
+          >
+            Create Event
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

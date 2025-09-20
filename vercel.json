@@ -8,12 +8,11 @@
     },
     {
       "src": "backend/index.js",
-      "use": "@vercel/node",
-      "config": { "rootDir": "backend" }
+      "use": "@vercel/node"
     }
   ],
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api" },
-    { "source": "/(.*)", "destination": "/$1" }
+    { "source": "/api/(.*)", "destination": "/backend/index.js" },
+    { "source": "/(.*)", "destination": "/frontend/$1" }
   ]
 }

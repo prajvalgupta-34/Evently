@@ -37,18 +37,26 @@ export default function ConnectWallet() {
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center p-4 bg-gray-100 rounded-lg shadow-md">
       {account ? (
-        <div>
-          <p>Connected: {account}</p>
-          <p>Contract State: {currentState}</p>
-          <button onClick={depositPrize} className="bg-blue-500 text-white p-2 rounded mt-2">
+        <div className="text-center">
+          <p className="text-lg font-semibold text-gray-800">Connected Account</p>
+          <p className="text-sm text-gray-600 truncate max-w-xs mt-1">{account}</p>
+          <p className="text-lg font-semibold text-gray-800 mt-4">Contract State</p>
+          <p className="text-sm text-gray-600">{currentState}</p>
+          <button
+            onClick={depositPrize}
+            className="mt-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition duration-200"
+          >
             Deposit Prize (0.01 ETH)
           </button>
         </div>
       ) : (
-        <button onClick={connectWallet} className="bg-orange-500 text-white p-2 rounded">
-          Connect Wallet
+        <button
+          onClick={connectWallet}
+          className="px-8 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold rounded-full shadow-lg hover:from-purple-600 hover:to-indigo-700 focus:outline-none focus:ring-4 focus:ring-purple-300 transition duration-300 ease-in-out transform hover:-translate-y-1"
+        >
+          Connect with MetaMask
         </button>
       )}
     </div>
