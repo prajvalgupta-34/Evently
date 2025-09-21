@@ -1,67 +1,66 @@
-# Next-Generation Event Management MVP
+# Evently - Decentralized Event Management Platform
 
-This project is a full-stack event management application built with Next.js, Node.js/Express, Supabase, OpenAI, and blockchain technologies.
+Evently is a modern, decentralized platform for creating, managing, and attending events. It leverages blockchain technology for secure and transparent ticketing and prize distribution.
 
-## Setup Instructions
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
-- Node.js and npm
-- A Supabase project with the `events` and `participants` tables
-- An OpenAI API key
-- MetaMask browser extension
+*   Node.js and npm
+*   Git
 
-### Environment Variables
+### Installation
 
-Create a `.env.local` file in the `frontend` directory with the following variables:
+1.  **Clone the repo**
+    ```sh
+    git clone https://github.com/prajvalgupta-34/Evently.git
+    ```
+2.  **Install frontend dependencies**
+    ```sh
+    cd frontend
+    npm install
+    ```
+3.  **Install backend dependencies**
+    ```sh
+    cd ../backend
+    npm install
+    ```
+4.  **Install contract dependencies**
+    ```sh
+    cd ../contracts
+    npm install
+    ```
+5.  **Set up environment variables**
+    *   Create a `.env.local` file in the `frontend` directory and add your Supabase URL and anonymous key:
+        ```
+        NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+        NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+        ```
+    *   Create a `.env` file in the `backend` directory and add your OpenAI API key and Supabase credentials:
+        ```
+        OPENAI_API_KEY=your_openai_api_key
+        SUPABASE_URL=your_supabase_url
+        SUPABASE_ANON_KEY=your_supabase_anon_key
+        ```
 
-```
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
+### Running the Application
 
-Create a `.env` file in the `backend` directory with the following variables:
+1.  **Start the backend server**
+    ```sh
+    cd backend
+    npm start
+    ```
+2.  **Start the frontend development server**
+    ```sh
+    cd frontend
+    npm run dev
+    ```
+3.  **Deploy the smart contract (optional)**
+    ```sh
+    cd contracts
+    npx hardhat run scripts/deploy.js --network localhost
+    ```
 
-```
-SUPABASE_URL=your_supabase_url
-SUPABASE_KEY=your_supabase_service_key
-OPENAI_API_KEY=your_openai_api_key
-```
-
-### Frontend
-
-To run the frontend application, navigate to the `frontend` directory and run the following commands:
-
-```bash
-npm install
-npm run dev
-```
-
-### Backend
-
-To run the backend server, navigate to the `backend` directory and run the following commands:
-
-```bash
-npm install
-npm start
-```
-
-### Blockchain
-
-To deploy the smart contract, navigate to the `contracts` directory and run the following commands:
-
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-2. **Compile the contract:**
-   ```bash
-   npx hardhat compile
-   ```
-
-3. **Deploy the contract:**
-   - Update the `judgeAddress` in `scripts/deploy.js` with the desired judge's wallet address.
-   - Run the deployment script:
-     ```bash
-     npx hardhat run scripts/deploy.js --network <your_network>
+The application will be available at `http://localhost:3000`.
